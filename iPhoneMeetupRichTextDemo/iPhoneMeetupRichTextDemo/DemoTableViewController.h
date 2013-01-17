@@ -11,5 +11,4 @@
 @interface DemoTableViewController : UITableViewController{
     NSMutableArray *myData;
 }
-- (NSString *)formattedStringForString:(NSString *)string atRow:(int)row;
 @end

@@ -15,6 +15,8 @@
 
 @interface DemoTableViewController ()
 
+- (NSString *)formattedStringForString:(NSString *)string atRow:(int)row;
+
 @end
 
 @implementation DemoTableViewController

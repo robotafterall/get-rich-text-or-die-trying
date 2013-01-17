@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class DemoTableViewController;
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) DemoTableViewController *viewController;
 
 @end
