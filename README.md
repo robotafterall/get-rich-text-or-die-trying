@@ -1,5 +1,4 @@
-Get Rich(Text in TableViews) or Die Trying!
-Winnipeg iPhone Developer Meetup
+Get Rich(Text in TableViews) or Die Trying! - Winnipeg iPhone Developer Meetup
 -------------------------------------------------
 
 http://www.meetup.com/Winnipeg-iPhone-Developer-Meetup/events/99938802/
