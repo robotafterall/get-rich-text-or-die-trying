@@ -69,8 +69,6 @@
 		7B3F8CAA16A8619F0020A88A = {
 			isa = PBXGroup;
 			children = (
-				7B3F8CEE16A872580020A88A /* QuartzCore.framework */,
-				7B3F8CE816A863660020A88A /* CoreText.framework */,
 				7B3F8CBF16A8619F0020A88A /* iPhoneMeetupRichTextDemo */,
 				7B3F8CB816A8619F0020A88A /* Frameworks */,
 				7B3F8CB616A8619F0020A88A /* Products */,
@@ -88,6 +86,8 @@
 		7B3F8CB816A8619F0020A88A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B3F8CEE16A872580020A88A /* QuartzCore.framework */,
+				7B3F8CE816A863660020A88A /* CoreText.framework */,
 				7B3F8CB916A8619F0020A88A /* UIKit.framework */,
 				7B3F8CBB16A8619F0020A88A /* Foundation.framework */,
 				7B3F8CBD16A8619F0020A88A /* CoreGraphics.framework */,
@@ -98,12 +98,7 @@
 		7B3F8CBF16A8619F0020A88A /* iPhoneMeetupRichTextDemo */ = {
 			isa = PBXGroup;
 			children = (
-				7B3F8CE516A863480020A88A /* RTLabel.h */,
-				7B3F8CE616A863480020A88A /* RTLabel.m */,
-				7B3F8CDF16A863280020A88A /* JMImageCache.h */,
-				7B3F8CE016A863280020A88A /* JMImageCache.m */,
-				7B3F8CE116A863280020A88A /* UIImageView+JMImageCache.h */,
-				7B3F8CE216A8632A0020A88A /* UIImageView+JMImageCache.m */,
+				7B3F8CF916A89F5D0020A88A /* ThirdPartyUtilities */,
 				7B3F8CC816A8619F0020A88A /* AppDelegate.h */,
 				7B3F8CC916A8619F0020A88A /* AppDelegate.m */,
 				7B3F8CDC16A861C30020A88A /* DemoTableViewController.h */,
@@ -125,6 +120,19 @@
 				7B3F8CCF16A8619F0020A88A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B3F8CF916A89F5D0020A88A /* ThirdPartyUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				7B3F8CE116A863280020A88A /* UIImageView+JMImageCache.h */,
+				7B3F8CE216A8632A0020A88A /* UIImageView+JMImageCache.m */,
+				7B3F8CE516A863480020A88A /* RTLabel.h */,
+				7B3F8CE616A863480020A88A /* RTLabel.m */,
+				7B3F8CDF16A863280020A88A /* JMImageCache.h */,
+				7B3F8CE016A863280020A88A /* JMImageCache.m */,
+			);
+			name = ThirdPartyUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
