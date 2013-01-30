@@ -8,10 +8,11 @@
 
 #import "DemoTableViewController.h"
 #import "RTLabel.h"
-#import "JMImageCache.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define MARGIN 10
+#define SAMPLESIZE 500
+#define SAMPLETEXT @"Get Rich(Text in TableViews) or Die Trying!"
 
 @interface DemoTableViewController ()
 
@@ -31,6 +32,7 @@
     
     if (row % 2 == 0) {
         string = [string stringByAppendingString:@"\n<b> Winnipeg iPhone Developer Meetup!!!! </b>"];
+        string = [string stringByReplacingOccurrencesOfString:@"Winnipeg" withString:@"<b>Winnipeg</b>"];
     }
     
     if (row % 3 == 0) {
@@ -39,6 +41,12 @@
     
     if (row % 5 == 0) {
         string = [@"<a href=\"http://www.meetup.com/Winnipeg-iPhone-Developer-Meetup\">MEETUP!!!</a>\niOS Developers Rule!!!\n" stringByAppendingString:string];
+    }
+    
+    if (row % 6 == 0) {
+        for (int i=0; i < 10; i++) {
+            string = [string stringByAppendingFormat:@" %d,",i];
+        }
     }
     
     return string;
@@ -63,8 +71,8 @@
         myData = [NSMutableArray new];
     }
     
-    for (int i=0; i<100; i++) {
-        [myData addObject:@"Get Rich(Text in TableViews) or Die Trying!"];
+    for (int i=0; i<SAMPLESIZE; i++) {
+        [myData addObject:SAMPLETEXT];
     }
     
     [self.tableView reloadData];
@@ -95,10 +103,6 @@
     return label.optimumSize.height + MARGIN*2;
 }
 
-
-
-
-
 //---------------------------------------------------------
 //STEP TWO - Render in Background Thread - Refactor RTLabel
 //---------------------------------------------------------
@@ -109,8 +113,8 @@
         myData = [NSMutableArray new];
     }
     
-    for (int i=0; i<100; i++) {
-        [myData addObject:@"Get Rich(Text in TableViews) or Die Trying!"];
+    for (int i=0; i<SAMPLESIZE; i++) {
+        [myData addObject:SAMPLETEXT];
     }
     
     [self.tableView reloadData];
@@ -127,15 +131,16 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             RTLabel *label = [RTLabel new];
             label.text = [self formattedStringForString:[myData objectAtIndex:indexPath.row] atRow:indexPath.row];
+            label.frame = CGRectMake(0, 0, self.view.frame.size.width - MARGIN*2, 1000);
             
-            UIImage *image = [label renderToImageWithSize:CGSizeMake(cell.frame.size.width - MARGIN*2, cell.frame.size.height - MARGIN*2)];
+            UIImage *image = [label renderToImageWithSize:CGSizeMake(label.frame.size.width, label.optimumSize.height)];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 CALayer *layer = [CALayer layer];
                 layer.position = CGPointMake(MARGIN, MARGIN);
                 layer.contents = (id)image.CGImage;
                 layer.anchorPoint = CGPointMake(0, 0);
-                layer.bounds = CGRectMake(MARGIN, MARGIN, cell.frame.size.width - MARGIN*2, cell.frame.size.height - MARGIN*2);
+                layer.bounds = CGRectMake(MARGIN, MARGIN, image.size.width, image.size.height);
                 
                 [cell.layer addSublayer:layer];
             });
@@ -150,8 +155,8 @@
     label.text = [self formattedStringForString:[myData objectAtIndex:indexPath.row] atRow:indexPath.row];
     label.frame = CGRectMake(0, 0, self.view.frame.size.width - MARGIN*2, 100);
     return label.optimumSize.height + MARGIN*2;
-}*/
-
+}
+*/
 
 
 //---------------------------------------------------------
@@ -166,9 +171,9 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        for (int i=0; i<100; i++) {
+        for (int i=0; i<SAMPLESIZE; i++) {
             
-            NSString *displayString = [self formattedStringForString:@"Get Rich(Text in TableViews) or Die Trying!" atRow:i];
+            NSString *displayString = [self formattedStringForString:SAMPLETEXT atRow:i];
             
             RTLabel *label = [RTLabel new];
             label.frame = CGRectMake(0, 0, self.view.frame.size.width-MARGIN*2, 1000);

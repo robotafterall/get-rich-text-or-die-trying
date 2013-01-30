@@ -29,7 +29,6 @@ Frameworks used :
 
 3rd Party Packages used :
 - RTLabel -> https://github.com/honcheng/RTLabel
-- JMImageCache -> https://github.com/jakemarsh/JMImageCache
 
 Presentation can be found here :
 - https://docs.google.com/presentation/d/1C4sPIxCalmXGzzNV2jHm_AawzazbHrjKinwYCv_cj5w/edit#slide=id.p

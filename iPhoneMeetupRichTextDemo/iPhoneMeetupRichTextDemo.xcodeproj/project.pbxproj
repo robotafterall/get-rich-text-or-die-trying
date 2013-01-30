@@ -17,8 +17,6 @@
 		7B3F8CCE16A8619F0020A88A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B3F8CCD16A8619F0020A88A /* Default@2x.png */; };
 		7B3F8CD016A8619F0020A88A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B3F8CCF16A8619F0020A88A /* Default-568h@2x.png */; };
 		7B3F8CDE16A861C30020A88A /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F8CDD16A861C30020A88A /* DemoTableViewController.m */; };
-		7B3F8CE316A8632B0020A88A /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F8CE016A863280020A88A /* JMImageCache.m */; };
-		7B3F8CE416A8632B0020A88A /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F8CE216A8632A0020A88A /* UIImageView+JMImageCache.m */; };
 		7B3F8CE716A863490020A88A /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F8CE616A863480020A88A /* RTLabel.m */; };
 		7B3F8CE916A863660020A88A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3F8CE816A863660020A88A /* CoreText.framework */; };
 		7B3F8CEF16A872580020A88A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3F8CEE16A872580020A88A /* QuartzCore.framework */; };
@@ -40,10 +38,6 @@
 		7B3F8CCF16A8619F0020A88A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7B3F8CDC16A861C30020A88A /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
 		7B3F8CDD16A861C30020A88A /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
-		7B3F8CDF16A863280020A88A /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
-		7B3F8CE016A863280020A88A /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
-		7B3F8CE116A863280020A88A /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
-		7B3F8CE216A8632A0020A88A /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
 		7B3F8CE516A863480020A88A /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
 		7B3F8CE616A863480020A88A /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
 		7B3F8CE816A863660020A88A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -98,7 +92,8 @@
 		7B3F8CBF16A8619F0020A88A /* iPhoneMeetupRichTextDemo */ = {
 			isa = PBXGroup;
 			children = (
-				7B3F8CF916A89F5D0020A88A /* Third Party Utilities */,
+				7B3F8CE516A863480020A88A /* RTLabel.h */,
+				7B3F8CE616A863480020A88A /* RTLabel.m */,
 				7B3F8CC816A8619F0020A88A /* AppDelegate.h */,
 				7B3F8CC916A8619F0020A88A /* AppDelegate.m */,
 				7B3F8CDC16A861C30020A88A /* DemoTableViewController.h */,
@@ -120,19 +115,6 @@
 				7B3F8CCF16A8619F0020A88A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7B3F8CF916A89F5D0020A88A /* Third Party Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				7B3F8CE116A863280020A88A /* UIImageView+JMImageCache.h */,
-				7B3F8CE216A8632A0020A88A /* UIImageView+JMImageCache.m */,
-				7B3F8CE516A863480020A88A /* RTLabel.h */,
-				7B3F8CE616A863480020A88A /* RTLabel.m */,
-				7B3F8CDF16A863280020A88A /* JMImageCache.h */,
-				7B3F8CE016A863280020A88A /* JMImageCache.m */,
-			);
-			name = "Third Party Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +185,6 @@
 				7B3F8CC616A8619F0020A88A /* main.m in Sources */,
 				7B3F8CCA16A8619F0020A88A /* AppDelegate.m in Sources */,
 				7B3F8CDE16A861C30020A88A /* DemoTableViewController.m in Sources */,
-				7B3F8CE316A8632B0020A88A /* JMImageCache.m in Sources */,
-				7B3F8CE416A8632B0020A88A /* UIImageView+JMImageCache.m in Sources */,
 				7B3F8CE716A863490020A88A /* RTLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
