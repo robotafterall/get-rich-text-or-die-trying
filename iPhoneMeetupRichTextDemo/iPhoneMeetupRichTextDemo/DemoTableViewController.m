@@ -64,7 +64,7 @@
 //---------------------------------------------------------
 //STEP ONE - Put RTLabel in UITableViewCell
 //---------------------------------------------------------
-/*
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     if (myData == nil) {
@@ -122,7 +122,7 @@
     
     return label.optimumSize.height + MARGIN*2;
 }
-*/
+
 
 //---------------------------------------------------------
 //STEP TWO - Render in Background Thread - Refactor RTLabel
@@ -144,10 +144,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer = @"bla";
-    //NSString *identifer = [NSString stringWithFormat:@"%d-%d",indexPath.section,indexPath.row];
-    
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
-    
+        
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
     
     if (cell == nil) {
@@ -198,7 +195,7 @@
 //---------------------------------------------------------
 //STEP THREE - Pre Process Data for Render
 //---------------------------------------------------------
-
+/*
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -239,39 +236,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *identifer = [NSString stringWithFormat:@"%d-%d",indexPath.section,indexPath.row];
+    static NSString *identifer = @"bla";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
     
     if (cell == nil) {
         
         cell = [UITableViewCell new];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            
-            NSDictionary *newData = [myData objectAtIndex:indexPath.row];
-            
-            NSValue *value = [[myData objectAtIndex:indexPath.row] objectForKey:@"size"];
-
-            RTLabel *label = [RTLabel new];
-            
-            [label setText:[newData objectForKey:@"displayText"] extractedTextComponent:[newData objectForKey:@"components"]];
-            
-            UIImage *image = [label renderToImageWithSize:value.CGSizeValue];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                CALayer *layer = [CALayer layer];
-                layer.position = CGPointMake(MARGIN, MARGIN);
-                layer.contents = (id)image.CGImage;
-                layer.anchorPoint = CGPointMake(0, 0);
-                layer.bounds = CGRectMake(MARGIN, MARGIN, value.CGSizeValue.width, value.CGSizeValue.height);
-                
-                [cell.layer addSublayer:layer];
-                
-            });
-        });
     }
+    
+    __weak UITableViewCell *tmpCell = cell;
+        
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        NSDictionary *newData = [myData objectAtIndex:indexPath.row];
+        
+        NSValue *value = [[myData objectAtIndex:indexPath.row] objectForKey:@"size"];
+
+        RTLabel *label = [RTLabel new];
+        
+        [label setText:[newData objectForKey:@"displayText"] extractedTextComponent:[newData objectForKey:@"components"]];
+        
+        UIImage *image = [label renderToImageWithSize:value.CGSizeValue];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            CALayer *layer = [CALayer layer];
+            layer.position = CGPointMake(MARGIN, MARGIN);
+            layer.contents = (id)image.CGImage;
+            layer.anchorPoint = CGPointMake(0, 0);
+            layer.bounds = CGRectMake(MARGIN, MARGIN, value.CGSizeValue.width, value.CGSizeValue.height);
+            
+            [tmpCell.layer addSublayer:layer];
+            
+        });
+    });
     
     return cell;
 }
@@ -281,7 +280,7 @@
     NSValue *value = [[myData objectAtIndex:indexPath.row] objectForKey:@"size"];
     return value.CGSizeValue.height + MARGIN*2;
     
-}
+}*/
 
 
 @end
