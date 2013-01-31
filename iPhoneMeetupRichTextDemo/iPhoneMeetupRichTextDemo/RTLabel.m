@@ -160,8 +160,8 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-	[self render];
-    //[self renderWithContext:UIGraphicsGetCurrentContext() andSize:rect.size];
+	//[self render];
+    [self renderWithContext:UIGraphicsGetCurrentContext() andSize:rect.size];
 }
 
 - (UIImage *)renderToImageWithSize:(CGSize)size{
